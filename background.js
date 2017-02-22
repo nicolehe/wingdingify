@@ -1,12 +1,11 @@
 chrome.webRequest.onBeforeRequest.addListener(
     function(data) {
-        console.log(data.timeStamp);
         var fontUrl = data.url;
-        console.log(fontUrl);
-        var split = fontUrl.split(".");
-        var extension = split[split.length - 1];
+        var split = fontUrl.split("."); // splitting the url to get the extension
+        var extension = split[split.length - 1]; // the last item is the extension
         var newUrl;
 
+        // change the files depending on the extension
         switch (extension) {
             case "woff2":
                 newUrl = "https://db.onlinewebfonts.com/t/e991cc888d4fb544fe0a88d065ab6efc.woff2";
